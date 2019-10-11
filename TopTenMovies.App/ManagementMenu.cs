@@ -21,6 +21,7 @@ namespace TopTenMovies.App
                 Console.WriteLine("6. Place New Order");
                 Console.WriteLine("7. View Order History By Location");
                 Console.WriteLine("8. Return to Main Menu");
+                Console.WriteLine("\nPlease Choose: ");
 
                 var menuChoice = Console.ReadLine();
 
@@ -28,33 +29,48 @@ namespace TopTenMovies.App
                 {
                     case "1":
                         //View All Orders
+                        AllOrders allOrders = new AllOrders();
+                        allOrders.GetAllOrders();
                         break;
 
                     case "2":
                         //View All Customers
+                        AllCustomers allCustomers = new AllCustomers();
+                        allCustomers.GetAllCustomers();
                         break;
 
                     case "3":
-                        //Search for customer by name
+                        //Search for Customer by Name
+                        CustomerSearch customerSearch = new CustomerSearch();
+                        customerSearch.SearchCustomers();
                         break;
 
                     case "4":
                         //Search for Order By Number
+                        OrderSearch orderSearch = new OrderSearch();
+                        orderSearch.SearchOrders();
                         break;
 
                     case "5":
-                        //add new customer
+                        //Add New Customer
+                        AddCustomer addCustomer = new AddCustomer();
+                        addCustomer.AddNewCustomer();
                         break;
 
                     case "6":
-
+                        //Place New Order
+                        NewOrder newOrder = new NewOrder();
+                        newOrder.PlaceNewOrder();
                         break;
 
                     case "7":
-
+                        //Get Order History by Location
+                        OrderHistoryByLocation orderHistoryByLocation = new OrderHistoryByLocation();
+                        orderHistoryByLocation.GetOrderHistory();
                         break;
 
                     case "8":
+                        //Return to Main Menu
                         MainMenu mainMenu = new MainMenu();
                         mainMenu.OpenMainMenu();
                         break;
@@ -62,17 +78,6 @@ namespace TopTenMovies.App
                     default:
                         break;
                 }
-
-                //void NewCustomerMenu()
-                //{
-                //    Console.Clear();
-                //}
-
-                //void CurrentCustomerMenu()
-                //{
-                //    Console.Clear();
-
-                //}
             }
         }
     }

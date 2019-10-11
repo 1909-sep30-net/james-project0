@@ -4,18 +4,18 @@ using System.Text;
 
 namespace TopTenMovies.App
 {
-    class MainMenu
+    class NewOrder
     {
-        public void OpenMainMenu()
+        public void PlaceNewOrder()
         {
             while (true)
             {
                 Console.Clear();
                 Console.WriteLine("Top Ten Video Store\n");
 
-                Console.WriteLine("1. Customer Menu");
-                Console.WriteLine("2. Employee Menu");
-                Console.WriteLine("3. Quit Application");
+                Console.WriteLine("1. ");
+                Console.WriteLine("2. ");
+                Console.WriteLine("3. Return to Main Menu");
                 Console.WriteLine("\nPlease Choose: ");
 
                 var menuChoice = Console.ReadLine();
@@ -23,18 +23,16 @@ namespace TopTenMovies.App
                 switch (menuChoice)
                 {
                     case "1":
-                        CustomerMenu cMenu = new CustomerMenu();
-                        cMenu.OpenCustomerMenu();
+
                         break;
 
                     case "2":
-                        ManagementMenu mMenu = new ManagementMenu();
-                        mMenu.OpenManagementMenu();
+
                         break;
 
                     case "3":
-                        Console.WriteLine("Exit.");
-                        Environment.Exit(0);
+                        MainMenu mainMenu = new MainMenu();
+                        mainMenu.OpenMainMenu();
                         break;
 
                     default:
