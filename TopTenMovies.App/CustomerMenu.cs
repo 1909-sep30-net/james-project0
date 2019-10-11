@@ -13,31 +13,59 @@ namespace TopTenMovies.App
                 Console.Clear();
                 Console.WriteLine("1. New Customer");
                 Console.WriteLine("2. Current Customer");
+                Console.WriteLine("3. Return To Main Menu");
 
                 var menuChoice = Console.ReadLine();
 
                 switch (menuChoice)
                 {
                     case "1":
-                        NewCustomerMenu();
+                        AddCustomer addCustomer = new AddCustomer();
+                        addCustomer.AddNewCustomer();
                         break;
 
                     case "2":
                         CurrentCustomerMenu();
                         break;
 
+                    case "3":
+                        MainMenu mainMenu = new MainMenu();
+                        mainMenu.OpenMainMenu();
+                        break;
+
                     default:
                         break;
-                }
-
-                void NewCustomerMenu()
-                {
-                    Console.Clear();
                 }
 
                 void CurrentCustomerMenu()
                 {
                     Console.Clear();
+                    Console.WriteLine("Top Ten Video Store\n");
+
+                    Console.WriteLine("1. ");
+                    Console.WriteLine("2. ");
+                    Console.WriteLine("3. Return To Main Menu");
+
+                    var menuChoice = Console.ReadLine();
+
+                    switch (menuChoice)
+                    {
+                        case "1":
+                            
+                            break;
+
+                        case "2":
+                            
+                            break;
+
+                        case "3":
+                            MainMenu mainMenu = new MainMenu();
+                            mainMenu.OpenMainMenu();
+                            break;
+
+                        default:
+                            break;
+                    }
 
                 }
             }
