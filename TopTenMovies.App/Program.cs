@@ -6,6 +6,7 @@ namespace TopTenMovies.App
     {
         static void Main(string[] args)
         {
+            Console.Clear();
             Console.WriteLine("Top Ten Video Store\n");
 
             while (true)

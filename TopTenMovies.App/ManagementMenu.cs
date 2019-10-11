@@ -8,7 +8,7 @@ namespace TopTenMovies.App
     {
         public void OpenManagementMenu()
         {
-
+            Console.Clear();
         }
     }
 }
