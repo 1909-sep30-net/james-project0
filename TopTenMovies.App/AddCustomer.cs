@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TopTenMovies.DataAccess;
 
 namespace TopTenMovies.App
 {
@@ -20,7 +21,8 @@ namespace TopTenMovies.App
             switch (menuChoice)
             {
                 case "1":
-                    NewCustomer();
+                    AddCustomerDB addCustomerDB = new AddCustomerDB();
+                    addCustomerDB.AddNewCustomerDB();
                     break;
 
                 case "2":
@@ -31,20 +33,6 @@ namespace TopTenMovies.App
                 default:
                     break;
             }
-        }
-
-        void NewCustomer()
-        {
-            Console.Clear();
-            Console.WriteLine("Top Ten Video Store\n");
-
-            //enter new customer data
-
-            Console.WriteLine("TODO (enter to return to menu");
-            var tempUI = Console.ReadLine();
-
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.OpenMainMenu();
-        }
+        }       
     }
 }
