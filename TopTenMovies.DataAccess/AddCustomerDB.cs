@@ -4,7 +4,6 @@ using System.Text;
 using Microsoft.EntityFrameworkCore;
 using TopTenMovies.DataAccess.Entities;
 using System.Linq;
-using TopTenMovies.Library;
 
 namespace TopTenMovies.DataAccess
 {
@@ -40,8 +39,8 @@ namespace TopTenMovies.DataAccess
             Console.Clear();
             Console.WriteLine("Top Ten Video Store\n");
             Console.WriteLine($"{newCustomer.FirstName} {newCustomer.LastName} Added.\n");
-            Console.WriteLine("Enter to Continue.\n");
-            Console.ReadLine();
+            Console.WriteLine("Hit any Key to Continue: ");
+            Console.ReadKey();
         }
     }
 }

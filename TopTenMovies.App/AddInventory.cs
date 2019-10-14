@@ -32,10 +32,8 @@ namespace TopTenMovies.App
                         Console.WriteLine("\nPrice: ");
                         string filmPrice = Console.ReadLine();
 
-
-
-                        Console.WriteLine("Hit any Key to Continue");
-                        Console.ReadKey();
+                        var addInventory = new AddInventoryDB();
+                        addInventory.AddNewInventoryDB(filmTitle, filmPrice);
 
                         break;
 

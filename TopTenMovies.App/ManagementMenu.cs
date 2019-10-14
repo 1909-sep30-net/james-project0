@@ -76,8 +76,9 @@ namespace TopTenMovies.App
                         break;
 
                     case "8":
-                        //Place New Order
-                        var addInventory = new Add
+                        //Add Inventory
+                        var addInventory = new AddInventory();
+                        addInventory.AddNewInventory();    
                         break;
 
                     case "9":

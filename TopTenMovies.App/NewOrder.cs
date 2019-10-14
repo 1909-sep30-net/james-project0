@@ -35,8 +35,12 @@ namespace TopTenMovies.App
                         Console.WriteLine("\nEnter Location for Pickup: ");
                         string filmLocation = Console.ReadLine();
 
+                        //verify location inventory is not zero
+
                         Console.WriteLine("\nEnter Quantity you Wish to Purchase: ");
                         string filmQuantity = Console.ReadLine();
+
+                        //verify inventory available
 
                         //call to NewOrderDB
 
