@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TopTenMovies.DataAccess;
 
 namespace TopTenMovies.App
 {
-    class NewOrder
+    public class AddInventory
     {
-        public void PlaceNewOrder()
+        public void AddNewInventory()
         {
             while (true)
             {
                 Console.Clear();
                 Console.WriteLine("Top Ten Video Store\n");
 
-                Console.WriteLine("1. Place New Order");
+                Console.WriteLine("1. Add Inventory");
                 Console.WriteLine("3. Return to Main Menu");
                 Console.WriteLine("\nPlease Choose: ");
 
@@ -25,20 +26,13 @@ namespace TopTenMovies.App
                         Console.Clear();
                         Console.WriteLine("Top Ten Video Store\n");
 
-                        Console.WriteLine("Available Now: \n");
-
-                        //display 10 choices
-
-                        Console.WriteLine("\nEnter Title You Want to Purchase: ");
+                        Console.WriteLine("Film Title: ");
                         string filmTitle = Console.ReadLine();
 
-                        Console.WriteLine("\nEnter Location for Pickup: ");
-                        string filmLocation = Console.ReadLine();
+                        Console.WriteLine("\nPrice: ");
+                        string filmPrice = Console.ReadLine();
 
-                        Console.WriteLine("\nEnter Quantity you Wish to Purchase: ");
-                        string filmQuantity = Console.ReadLine();
 
-                        //call to NewOrderDB
 
                         Console.WriteLine("Hit any Key to Continue");
                         Console.ReadKey();
@@ -55,5 +49,6 @@ namespace TopTenMovies.App
                 }
             }
         }
+
     }
 }

@@ -22,7 +22,7 @@ namespace TopTenMovies.DataAccess
 
             foreach (Customer customer in context.Customer)
             {
-                Console.WriteLine($"[CustomerId: {customer.CustomerId}] Customer Name: {customer.FirstName} {customer.LastName}");
+                Console.WriteLine($"[CustomerId] {customer.CustomerId} [Customer Name] {customer.FirstName} {customer.LastName}");
             }
         }
     }

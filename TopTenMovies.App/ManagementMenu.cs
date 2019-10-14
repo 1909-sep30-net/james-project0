@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace TopTenMovies.App
 {
     class ManagementMenu
@@ -20,7 +21,8 @@ namespace TopTenMovies.App
                 Console.WriteLine("5. Add New Customer");
                 Console.WriteLine("6. Place New Order");
                 Console.WriteLine("7. View Order History By Location");
-                Console.WriteLine("8. Return to Main Menu");
+                Console.WriteLine("8. Add Inventory");
+                Console.WriteLine("9. Return to Main Menu");
                 Console.WriteLine("\nPlease Choose: ");
 
                 var menuChoice = Console.ReadLine();
@@ -74,6 +76,11 @@ namespace TopTenMovies.App
                         break;
 
                     case "8":
+                        //Place New Order
+                        var addInventory = new Add
+                        break;
+
+                    case "9":
                         //Return to Main Menu
                         MainMenu mainMenu = new MainMenu();
                         mainMenu.OpenMainMenu();
