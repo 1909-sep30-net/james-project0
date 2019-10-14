@@ -37,6 +37,10 @@ namespace TopTenMovies.App
                         //View All Customers
                         AllCustomers allCustomers = new AllCustomers();
                         allCustomers.GetAllCustomers();
+
+                        Console.WriteLine("\nHit Any Key to Continue:");
+
+                        Console.ReadKey();
                         break;
 
                     case "3":

@@ -59,7 +59,7 @@ namespace TopTenMovies.App
                             newOrder.PlaceNewOrder();
                             break;
 
-                        case "2":
+                        case "2":                          
                             OrderHistory orderHistory = new OrderHistory();
                             orderHistory.GetOrderHistory();
                             break;

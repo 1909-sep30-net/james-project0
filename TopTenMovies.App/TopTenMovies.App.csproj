@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TopTenMovies.DataAccess\TopTenMovies.DataAccess.csproj" />
+    <ProjectReference Include="..\TopTenMovies.Library\TopTenMovies.Library.csproj" />
   </ItemGroup>
 
 </Project>
