@@ -4,9 +4,9 @@ using System.Text;
 
 namespace TopTenMovies.App
 {
-    class AllOrders
+    public class AllOrdersByCustomer
     {
-        public void GetAllOrders()
+        public void GetAllOrdersbyCustomer()
         {
 
         }

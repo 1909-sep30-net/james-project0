@@ -14,13 +14,13 @@ namespace TopTenMovies.App
                 Console.Clear();
                 Console.WriteLine("Top Ten Video Store\n");
 
-                Console.WriteLine("1. View All Orders");
-                Console.WriteLine("2. View All Customers");
+                Console.WriteLine("1. View All Orders by Customer");
+                Console.WriteLine("2. View All Orders by Location");
                 Console.WriteLine("3. Search For Customer By Name");
                 Console.WriteLine("4. Search for Order By Number");
                 Console.WriteLine("5. Add New Customer");
                 Console.WriteLine("6. Place New Order");
-                Console.WriteLine("7. View Order History By Location");
+                Console.WriteLine("7. View All Customers");
                 Console.WriteLine("8. Add Inventory");
                 Console.WriteLine("9. Return to Main Menu");
                 Console.WriteLine("\nPlease Choose: ");
@@ -31,18 +31,14 @@ namespace TopTenMovies.App
                 {
                     case "1":
                         //View All Orders
-                        AllOrders allOrders = new AllOrders();
-                        allOrders.GetAllOrders();
+                        var allOrders = new AllOrdersByCustomer();
+                        allOrders.GetAllOrdersbyCustomer();
                         break;
 
                     case "2":
                         //View All Customers
-                        AllCustomers allCustomers = new AllCustomers();
-                        allCustomers.GetAllCustomers();
-
-                        Console.WriteLine("\nHit Any Key to Continue:");
-
-                        Console.ReadKey();
+                        var allOrdersByLocation = new AllOrdersByLocation();
+                        allOrdersByLocation.GetOrdersByLocation();
                         break;
 
                     case "3":
@@ -70,9 +66,8 @@ namespace TopTenMovies.App
                         break;
 
                     case "7":
-                        //Get Order History by Location
-                        OrderHistoryByLocation orderHistoryByLocation = new OrderHistoryByLocation();
-                        orderHistoryByLocation.GetOrderHistory();
+                        //View all Customers
+                        
                         break;
 
                     case "8":

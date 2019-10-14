@@ -4,9 +4,9 @@ using System.Text;
 
 namespace TopTenMovies.App
 {
-    class OrderHistoryByLocation
+    public class AllOrdersByLocation
     {
-        public void GetOrderHistory()
+        public void GetOrdersByLocation()
         {
 
         }
