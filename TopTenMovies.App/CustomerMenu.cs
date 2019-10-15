@@ -60,8 +60,8 @@ namespace TopTenMovies.App
                             break;
 
                         case "2":                          
-                            OrderHistory orderHistory = new OrderHistory();
-                            orderHistory.GetOrderHistory();
+                            var orderHistory = new AllOrdersByCustomer();
+                            orderHistory.GetAllOrdersbyCustomer();
                             break;
 
                         case "3":

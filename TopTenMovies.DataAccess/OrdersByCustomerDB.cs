@@ -18,8 +18,18 @@ namespace TopTenMovies.DataAccess
                 .Options;
 
             using var context = new TopTenMoviesContext(options);
+            using var context2 = new TopTenMoviesContext(options);
+            using var context3 = new TopTenMoviesContext(options);
 
+            var foundOrder = context.Orders.FirstOrDefault(p => p.CustomerId == customerID);
 
+            foreach (Orders order in context.Orders)
+            {
+                var title = context2.Product.FirstOrDefault(p => p.ProductId == foundOrder.ProductId);
+                var location = context3.Location.FirstOrDefault(p => p.LocationId == foundOrder.LocationId);
+
+                Console.WriteLine($"[CustomerId] {order.CustomerId} [Location] {location.City} [Title] {title.Title}");
+            }
         }
     }
 }
