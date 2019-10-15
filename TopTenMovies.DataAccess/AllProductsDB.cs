@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using TopTenMovies.DataAccess.Entities;
-using System.Linq;
 
 namespace TopTenMovies.DataAccess
 {
-    public class OrdersByCustomerDB
+    public class AllProductsDB
     {
-        public void GetOrdersByCustomerDB(int customerID)
+        public void GetAllProducts()
         {
             string connectionString = SecretConfiguration.ConnectionString;
 
@@ -19,7 +18,10 @@ namespace TopTenMovies.DataAccess
 
             using var context = new TopTenMoviesContext(options);
 
-
+           foreach (Product product in context.Product)
+            {
+                Console.WriteLine($"[ProductId] {product.ProductId} [Title] {product.Title}");
+            }
         }
     }
 }

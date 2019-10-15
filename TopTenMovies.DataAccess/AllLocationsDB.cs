@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using TopTenMovies.DataAccess.Entities;
-using System.Linq;
 
 namespace TopTenMovies.DataAccess
 {
-    public class OrdersByCustomerDB
+    public class AllLocationsDB
     {
-        public void GetOrdersByCustomerDB(int customerID)
+        public void GetAllLocationsDB()
         {
             string connectionString = SecretConfiguration.ConnectionString;
 
@@ -19,7 +18,12 @@ namespace TopTenMovies.DataAccess
 
             using var context = new TopTenMoviesContext(options);
 
+            Console.Clear();
 
+            foreach (Location location in context.Location)
+            {
+                Console.WriteLine($"[LocationId] {location.LocationId} [City] {location.City}");
+            }
         }
     }
 }

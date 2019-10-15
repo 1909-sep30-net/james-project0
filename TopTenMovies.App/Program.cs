@@ -6,7 +6,7 @@ namespace TopTenMovies.App
     {
         static void Main(string[] args)
         {
-            MainMenu mainMenu = new MainMenu();
+            var mainMenu = new MainMenu();
             mainMenu.OpenMainMenu();
         }
     }

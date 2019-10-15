@@ -16,9 +16,12 @@ namespace TopTenMovies.DataAccess.Entities
         }
 
         public virtual DbSet<Customer> Customer { get; set; }
+        public virtual DbSet<Inventory> Inventory { get; set; }
         public virtual DbSet<Location> Location { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<Product> Product { get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,25 +38,34 @@ namespace TopTenMovies.DataAccess.Entities
                     .HasMaxLength(50);
             });
 
-            modelBuilder.Entity<Location>(entity =>
+            modelBuilder.Entity<Inventory>(entity =>
             {
                 entity.Property(e => e.LocationId).HasColumnName("LocationID");
 
+                entity.HasOne(d => d.Location)
+                    .WithMany(p => p.Inventory)
+                    .HasForeignKey(d => d.LocationId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Inventory__Locat__628FA481");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.Inventory)
+                    .HasForeignKey(d => d.ProductId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Inventory__Produ__6383C8BA");
+            });
+
+            modelBuilder.Entity<Location>(entity =>
+            {
                 entity.Property(e => e.City)
                     .IsRequired()
                     .HasMaxLength(50);
-
-                entity.HasOne(d => d.Product)
-                    .WithMany(p => p.Location)
-                    .HasForeignKey(d => d.ProductId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Location__Produc__59063A47");
             });
 
             modelBuilder.Entity<Orders>(entity =>
             {
                 entity.HasKey(e => e.OrderId)
-                    .HasName("PK__Orders__C3905BAF784AD6CE");
+                    .HasName("PK__Orders__C3905BAF9D7768D2");
 
                 entity.Property(e => e.OrderId).HasColumnName("OrderID");
 
@@ -69,19 +81,19 @@ namespace TopTenMovies.DataAccess.Entities
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.CustomerId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Orders__Customer__5BE2A6F2");
+                    .HasConstraintName("FK__Orders__Customer__66603565");
 
                 entity.HasOne(d => d.Location)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.LocationId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Orders__Location__5CD6CB2B");
+                    .HasConstraintName("FK__Orders__Location__6754599E");
 
                 entity.HasOne(d => d.Product)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.ProductId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Orders__ProductI__5DCAEF64");
+                    .HasConstraintName("FK__Orders__ProductI__68487DD7");
             });
 
             modelBuilder.Entity<Product>(entity =>

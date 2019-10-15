@@ -21,8 +21,8 @@ namespace TopTenMovies.App
 
             Console.Clear();
 
-            var orderHistory = new AllOrdersByCustomer();
-            orderHistory.GetAllOrdersbyCustomer();
+            var orderHistory = new OrdersByCustomerDB();
+            orderHistory.GetOrdersByCustomerDB(customerID);
 
             Console.WriteLine("\nHit any Key to Continue");
             Console.ReadKey();

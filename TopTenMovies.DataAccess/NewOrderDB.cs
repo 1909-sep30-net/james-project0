@@ -10,9 +10,15 @@ namespace TopTenMovies.DataAccess
 {
     public class NewOrderDB
     {
-        public void PlaceNewOrderDB()
+        public void PlaceNewOrderDB(int filmProductId, int filmLocationId, int filmQuantityId)
         {
+            string connectionString = SecretConfiguration.ConnectionString;
 
-        }
+        DbContextOptions<TopTenMoviesContext> options = new DbContextOptionsBuilder<TopTenMoviesContext>()
+            .UseSqlServer(connectionString)
+            .Options;
+
+            using var context = new TopTenMoviesContext(options);
+}
     }
 }

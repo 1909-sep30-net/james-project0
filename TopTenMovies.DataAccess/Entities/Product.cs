@@ -7,7 +7,7 @@ namespace TopTenMovies.DataAccess.Entities
     {
         public Product()
         {
-            Location = new HashSet<Location>();
+            Inventory = new HashSet<Inventory>();
             Orders = new HashSet<Orders>();
         }
 
@@ -15,7 +15,7 @@ namespace TopTenMovies.DataAccess.Entities
         public string Title { get; set; }
         public decimal Price { get; set; }
 
-        public virtual ICollection<Location> Location { get; set; }
+        public virtual ICollection<Inventory> Inventory { get; set; }
         public virtual ICollection<Orders> Orders { get; set; }
     }
 }

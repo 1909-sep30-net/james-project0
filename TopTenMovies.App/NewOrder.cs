@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TopTenMovies.DataAccess;
 
 namespace TopTenMovies.App
 {
@@ -8,56 +9,41 @@ namespace TopTenMovies.App
     {
         public void PlaceNewOrder()
         {
-            while (true)
-            {
-                Console.Clear();
-                Console.WriteLine("Top Ten Video Store\n");
+            Console.Clear();
+            Console.WriteLine("Top Ten Video Store\n");
 
-                Console.WriteLine("1. Place New Order");
-                Console.WriteLine("3. Return to Main Menu");
-                Console.WriteLine("\nPlease Choose: ");
+            Console.WriteLine("Available Now: \n");
 
-                var menuChoice = Console.ReadLine();
+            var allProducts = new AllProducts();
+            allProducts.GetAllProducts();
 
-                switch (menuChoice)
-                {
-                    case "1":
-                        Console.Clear();
-                        Console.WriteLine("Top Ten Video Store\n");
+            Console.WriteLine("\nEnter ProductId to Purchase: ");
+            int filmProductId = Int32.Parse(Console.ReadLine());
 
-                        Console.WriteLine("Available Now: \n");
+            Console.Clear();
+            Console.WriteLine("Top Ten Video Store\n");
 
-                        //display 10 choices
+            var allLocations = new AllLocations();
+            allLocations.GetAllLocations();
 
-                        Console.WriteLine("\nEnter Title You Want to Purchase: ");
-                        string filmTitle = Console.ReadLine();
+            Console.WriteLine("\nEnter Location (Id) for Order: ");
+            int filmLocationId = Int32.Parse(Console.ReadLine());
 
-                        Console.WriteLine("\nEnter Location for Pickup: ");
-                        string filmLocation = Console.ReadLine();
+            //verify location inventory is not zero
 
-                        //verify location inventory is not zero
+            Console.WriteLine("\nEnter Quantity you Wish to Purchase: ");
+            int filmQuantity = Int32.Parse(Console.ReadLine());
 
-                        Console.WriteLine("\nEnter Quantity you Wish to Purchase: ");
-                        string filmQuantity = Console.ReadLine();
+            //verify inventory available
 
-                        //verify inventory available
+            //call to NewOrderDB
+            var newOrder = new NewOrderDB();
+            newOrder.PlaceNewOrderDB(filmProductId, filmLocationId, filmQuantity);
 
-                        //call to NewOrderDB
 
-                        Console.WriteLine("Hit any Key to Continue");
-                        Console.ReadKey();
-
-                        break;
-
-                    case "2":
-                        MainMenu mainMenu = new MainMenu();
-                        mainMenu.OpenMainMenu();
-                        break;
-
-                    default:
-                        break;
-                }
-            }
+            Console.WriteLine("Order Placed.");
+            Console.WriteLine("\nHit any Key to Continue");
+            Console.ReadKey();
         }
     }
 }
