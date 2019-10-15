@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using TopTenMovies.DataAccess.Entities;
+using System.Linq;
+
 
 namespace TopTenMovies.DataAccess
 {
-    public class AllCustomersDB
+    public class OrdersByLocationDB
     {
-        public void GetAllCustomersDB()
+        public void GetOrdersByLocation()
         {
             string connectionString = SecretConfiguration.ConnectionString;
 
@@ -18,12 +20,6 @@ namespace TopTenMovies.DataAccess
 
             using var context = new TopTenMoviesContext(options);
 
-            Console.Clear();
-
-            foreach (Customer customer in context.Customer)
-            {
-                Console.WriteLine($"[CustomerId] {customer.CustomerId} [Customer Name] {customer.FirstName} {customer.LastName}");
-            }
         }
     }
 }

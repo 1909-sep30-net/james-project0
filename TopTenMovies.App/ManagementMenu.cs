@@ -67,7 +67,8 @@ namespace TopTenMovies.App
 
                     case "7":
                         //View all Customers
-                        
+                        var allCustomers = new AllCustomers();
+                        allCustomers.GetAllCustomers();
                         break;
 
                     case "8":

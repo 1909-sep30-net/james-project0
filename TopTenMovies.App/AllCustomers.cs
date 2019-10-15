@@ -12,7 +12,10 @@ namespace TopTenMovies.App
         public void GetAllCustomers()
         {
             var displayAllCustomers = new AllCustomersDB();
-            displayAllCustomers.DisplayAllCustomers();
+            displayAllCustomers.GetAllCustomersDB();
+
+            Console.WriteLine("\nHit Any Key to Continue: ");
+            Console.ReadKey();
         }
     }
 }
