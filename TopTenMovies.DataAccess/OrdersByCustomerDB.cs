@@ -21,14 +21,16 @@ namespace TopTenMovies.DataAccess
             using var context2 = new TopTenMoviesContext(options);
             using var context3 = new TopTenMoviesContext(options);
 
-            var foundOrder = context.Orders.FirstOrDefault(p => p.CustomerId == customerID);
-
             foreach (Orders order in context.Orders)
             {
-                var title = context2.Product.FirstOrDefault(p => p.ProductId == foundOrder.ProductId);
-                var location = context3.Location.FirstOrDefault(p => p.LocationId == foundOrder.LocationId);
+                var title = context2.Product.FirstOrDefault(p => p.ProductId == order.ProductId);
+                var location = context3.Location.FirstOrDefault(p => p.LocationId == order.LocationId);
 
-                Console.WriteLine($"[CustomerId] {order.CustomerId} [Location] {location.City} [Title] {title.Title}");
+                if (order.CustomerId == customerID)
+                {
+                    Console.WriteLine($"[CustomerId] {order.CustomerId} [Location] {location.City} [Title] {title.Title} " +
+                        $"[Quantity] {order.Quantity}");
+                }         
             }
         }
     }

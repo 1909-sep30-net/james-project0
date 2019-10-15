@@ -32,12 +32,6 @@ namespace TopTenMovies.App
                 var mainMenu = new MainMenu();
                 mainMenu.OpenMainMenu();
             }
-            else
-            {
-                Console.WriteLine($"\n[CustomerId] {customerId}");
-                Console.WriteLine("\nHit any Key to Continue Order");
-                Console.ReadKey();
-            }
 
             Console.Clear();
             Console.WriteLine("Top Ten Video Store\n");
