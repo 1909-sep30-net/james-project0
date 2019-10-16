@@ -9,6 +9,9 @@ namespace TopTenMovies.App
     {
         public void GetAllCustomers()
         {
+            Console.Clear();
+            Console.WriteLine("Top Ten Video Store\n");
+
             var displayAllCustomers = new AllCustomersDB();
             displayAllCustomers.GetAllCustomersDB();
 

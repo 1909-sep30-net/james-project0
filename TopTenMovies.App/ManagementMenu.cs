@@ -17,12 +17,12 @@ namespace TopTenMovies.App
                 Console.WriteLine("1. View All Orders by Customer");
                 Console.WriteLine("2. View All Orders by Location");
                 Console.WriteLine("3. Search For Customer By Name");
-                Console.WriteLine("4. Search for Order By Number");
-                Console.WriteLine("5. Add New Customer");
-                Console.WriteLine("6. Place New Order");
-                Console.WriteLine("7. View All Customers");
-                Console.WriteLine("8. Add Inventory");
-                Console.WriteLine("9. Return to Main Menu");
+                //Console.WriteLine("4. Search for Order By Number");
+                Console.WriteLine("4. Add New Customer");
+                Console.WriteLine("5. Place New Order");
+                Console.WriteLine("6. View All Customers");
+                Console.WriteLine("7. Add Inventory");
+                Console.WriteLine("8. Return to Main Menu");
                 Console.WriteLine("\nPlease Choose: ");
 
                 var menuChoice = Console.ReadLine();
@@ -30,13 +30,13 @@ namespace TopTenMovies.App
                 switch (menuChoice)
                 {
                     case "1":
-                        //View All Orders
+                        //View Orders by Customer
                         var allOrders = new AllOrdersByCustomer();
                         allOrders.GetAllOrdersbyCustomer();
                         break;
 
                     case "2":
-                        //View All Customers
+                        //View Orders by Location
                         var allOrdersByLocation = new AllOrdersByLocation();
                         allOrdersByLocation.GetOrdersByLocation();
                         break;
@@ -47,43 +47,46 @@ namespace TopTenMovies.App
                         customerSearch.SearchCustomers();
                         break;
 
-                    case "4":
-                        //Search for Order By Number
-                        OrderSearch orderSearch = new OrderSearch();
-                        orderSearch.SearchOrders();
-                        break;
+                    //case "4":
+                    //    //Search for Order By Number
+                    //    OrderSearch orderSearch = new OrderSearch();
+                    //    orderSearch.SearchOrders();
+                    //    break;
 
-                    case "5":
+                    case "4":
                         //Add New Customer
                         AddCustomer addCustomer = new AddCustomer();
                         addCustomer.AddNewCustomer();
                         break;
 
-                    case "6":
+                    case "5":
                         //Place New Order
                         NewOrder newOrder = new NewOrder();
                         newOrder.PlaceNewOrder();
                         break;
 
-                    case "7":
+                    case "6":
                         //View all Customers
                         var allCustomers = new AllCustomers();
                         allCustomers.GetAllCustomers();
                         break;
 
-                    case "8":
+                    case "7":
                         //Add Inventory
                         var addInventory = new AddInventory();
                         addInventory.AddNewInventory();    
                         break;
 
-                    case "9":
+                    case "8":
                         //Return to Main Menu
                         MainMenu mainMenu = new MainMenu();
                         mainMenu.OpenMainMenu();
                         break;
 
                     default:
+                        Console.WriteLine("\n Invalid Input.");
+                        Console.WriteLine("\n Hit any Key to Continue");
+                        Console.ReadKey();
                         break;
                 }
             }

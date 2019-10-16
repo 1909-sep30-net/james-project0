@@ -22,6 +22,8 @@ namespace TopTenMovies.DataAccess
             using var context2 = new TopTenMoviesContext(options);
             using var context3 = new TopTenMoviesContext(options);
 
+            int count = 0;
+
             foreach (Orders order in context.Orders)
             {
                 var title = context2.Product.FirstOrDefault(p => p.ProductId == order.ProductId);
@@ -29,9 +31,17 @@ namespace TopTenMovies.DataAccess
 
                 if (order.LocationId == locationID)
                 {
+                    count++;
+
                     Console.WriteLine($"[LocationID] {order.LocationId} [Location] {location.City} [Title] {title.Title} " +
                         $"[Quantity] {order.Quantity}");
                 }
+            }
+            if(count == 0)
+            {
+                Console.WriteLine("\nNo Orders at this Location");
+                Console.WriteLine("\nHit any Key to Continue");
+                Console.ReadKey();
             }
         }
     }

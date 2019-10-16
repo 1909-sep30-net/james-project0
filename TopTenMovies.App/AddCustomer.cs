@@ -33,6 +33,9 @@ namespace TopTenMovies.App
                         break;
 
                     default:
+                        Console.WriteLine("\n Invalid Input.");
+                        Console.WriteLine("\n Hit any Key to Continue");
+                        Console.ReadKey();
                         break;
                 }
             }
