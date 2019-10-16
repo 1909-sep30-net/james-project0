@@ -9,29 +9,32 @@ namespace TopTenMovies.App
     {
         public void AddNewCustomer()
         {
-            Console.Clear();
-            Console.WriteLine("Top Ten Video Store\n");
-            Console.WriteLine("1. Enter New Customer Info");
-            Console.WriteLine("2. Return to Main Menu");
-
-            Console.WriteLine("\nPlease Choose: ");
-
-            var menuChoice = Console.ReadLine();
-
-            switch (menuChoice)
+            while (true)
             {
-                case "1":
-                    AddCustomerDB addCustomerDB = new AddCustomerDB();
-                    addCustomerDB.AddNewCustomerDB();
-                    break;
+                Console.Clear();
+                Console.WriteLine("Top Ten Video Store\n");
+                Console.WriteLine("1. Enter New Customer Info");
+                Console.WriteLine("2. Return to Main Menu");
 
-                case "2":
-                    MainMenu mainMenu = new MainMenu();
-                    mainMenu.OpenMainMenu();
-                    break;
+                Console.WriteLine("\nPlease Choose: ");
 
-                default:
-                    break;
+                var menuChoice = Console.ReadLine();
+
+                switch (menuChoice)
+                {
+                    case "1":
+                        AddCustomerDB addCustomerDB = new AddCustomerDB();
+                        addCustomerDB.AddNewCustomerDB();
+                        break;
+
+                    case "2":
+                        MainMenu mainMenu = new MainMenu();
+                        mainMenu.OpenMainMenu();
+                        break;
+
+                    default:
+                        break;
+                }
             }
         }       
     }

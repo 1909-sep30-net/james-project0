@@ -21,16 +21,30 @@ namespace TopTenMovies.DataAccess
 
             Customer newCustomer = new Customer();
 
-            Console.Clear();
-            Console.WriteLine("Top Ten Video Store\n");
-            Console.WriteLine("Enter Customer First and Last Name: \n");
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("Top Ten Video Store\n");
+                Console.WriteLine("Enter Customer First and Last Name: \n");
 
-            string customerName = Console.ReadLine();
+                string customerName = Console.ReadLine();
 
-            string[] fullName = customerName.Split(' ');
+                string[] fullName = customerName.Split(' ');
 
-            newCustomer.FirstName = fullName[0];
-            newCustomer.LastName = fullName[1];
+                if (string.IsNullOrEmpty(customerName) || fullName.Length != 2)
+                {
+                    Console.WriteLine("Invalid Name\n");
+                    Console.WriteLine("Hit any Key to Continue.");
+                    Console.ReadKey();
+                }
+                else
+                {
+                    //string[] fullName = customerName.Split(' ');
+                    newCustomer.FirstName = fullName[0];
+                    newCustomer.LastName = fullName[1];
+                    break;
+                }
+            }
 
             context.Customer.Add(newCustomer);
 
