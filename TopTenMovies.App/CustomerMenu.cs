@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TopTenMovies.DataAccess;
 
 namespace TopTenMovies.App
 {
@@ -23,8 +24,10 @@ namespace TopTenMovies.App
                 switch (menuChoice)
                 {
                     case "1":
-                        AddCustomer addCustomer = new AddCustomer();
-                        addCustomer.AddNewCustomer();
+                        //AddCustomer addCustomer = new AddCustomer();
+                        //addCustomer.AddNewCustomer();
+                        AddCustomerDB addCustomerDB = new AddCustomerDB();
+                        addCustomerDB.AddNewCustomerDB();
                         break;
 
                     case "2":

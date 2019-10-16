@@ -25,13 +25,18 @@ namespace TopTenMovies.DataAccess
             {
                 Console.Clear();
                 Console.WriteLine("Top Ten Video Store\n");
-                Console.WriteLine("Enter Customer First and Last Name: \n");
+                Console.WriteLine("Enter Customer First and Last Name:");
+                Console.WriteLine("(or Exit to Return to Menu)\n");
 
                 string customerName = Console.ReadLine();
 
                 string[] fullName = customerName.Split(' ');
 
-                if (string.IsNullOrEmpty(customerName) || fullName.Length != 2)
+                if(fullName[0].ToLower() == "exit")
+                {
+                    return;
+                }
+                else if (string.IsNullOrEmpty(customerName) || fullName.Length != 2)
                 {
                     Console.WriteLine("Invalid Name\n");
                     Console.WriteLine("Hit any Key to Continue.");

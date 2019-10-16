@@ -18,6 +18,14 @@ namespace TopTenMovies.App
 
             string[] fullName = customerName.Split(' ');
 
+            if (string.IsNullOrEmpty(customerName) || fullName.Length != 2)
+            {
+                Console.WriteLine("\nInvalid Entry");
+                Console.WriteLine("Hit any Key to Return to Menu");
+                Console.ReadKey();
+                return;
+            }
+
             string firstName = fullName[0];
             string lastName = fullName[1];
 
