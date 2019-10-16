@@ -39,7 +39,6 @@ namespace TopTenMovies.DataAccess
                 }
                 else
                 {
-                    //string[] fullName = customerName.Split(' ');
                     newCustomer.FirstName = fullName[0];
                     newCustomer.LastName = fullName[1];
                     break;

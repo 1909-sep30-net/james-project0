@@ -9,22 +9,34 @@ namespace TopTenMovies.App
     {
         public void GetOrdersByLocation()
         {
-            Console.Clear();
-            Console.WriteLine("Top Ten Video Store\n");
-            Console.WriteLine("All Locations:");
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("Top Ten Video Store\n");
+                Console.WriteLine("All Locations:");
 
-            var allLocations = new AllLocations();
-            allLocations.GetAllLocations();
+                var allLocations = new AllLocations();
+                allLocations.GetAllLocations();
 
-            Console.WriteLine("\nEnter LocationID for All Orders at Location");
-            int locationID = Int32.Parse(Console.ReadLine());
+                Console.WriteLine("\nEnter LocationID for All Orders at Location");
+                string inputLocationID = Console.ReadLine();
 
-            Console.Clear();
-            Console.WriteLine("Top Ten Video Store\n");
+                if(!(string.IsNullOrEmpty(inputLocationID)))
+                {
+                    int locationID = int.Parse(inputLocationID);
+                    Console.Clear();
+                    Console.WriteLine("Top Ten Video Store\n");
 
-            var allOrdersAtLocation = new OrdersByLocationDB();
-            allOrdersAtLocation.GetOrdersByLocationDB(locationID);
+                    var allOrdersAtLocation = new OrdersByLocationDB();
+                    allOrdersAtLocation.GetOrdersByLocationDB(locationID);
 
+                    break;
+                }
+
+                Console.WriteLine("\n Invalid Input.");
+                Console.WriteLine("\n Hit any Key to Continue");
+                Console.ReadKey();
+            }
         }
     }
 }
