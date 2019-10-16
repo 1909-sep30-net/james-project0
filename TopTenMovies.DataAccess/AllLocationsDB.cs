@@ -18,8 +18,6 @@ namespace TopTenMovies.DataAccess
 
             using var context = new TopTenMoviesContext(options);
 
-            Console.Clear();
-
             foreach (Location location in context.Location)
             {
                 Console.WriteLine($"[LocationId] {location.LocationId} [City] {location.City}");
